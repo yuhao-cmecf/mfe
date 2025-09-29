@@ -29,6 +29,8 @@ jobs:
 
       - name: Build container
         run: npm run build
+        env:
+          PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
 
       # - name: Configure AWS credentials
       # - uses: aws-actions/configure-aws-credentials@v4
