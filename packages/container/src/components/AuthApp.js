@@ -1,8 +1,8 @@
-import { mount } from "marketing/MarketingApp";
+import { mount } from "auth/AuthApp";
 import React, { useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-export default function MarketingApp() {
+export default function AuthApp() {
   const ref = useRef(null);
   const browserHistory = useHistory();
 
@@ -10,7 +10,7 @@ export default function MarketingApp() {
     const { onParentNavigate } = mount(ref.current, {
       initialPath: browserHistory.location.pathname,
       onNavigate: ({ pathname: nextPathname }) => {
-        console.log("Container App notified of navigation (by Marketing App) to:", nextPathname);
+        console.log("Container App notified of navigation (by Auth App) to:", nextPathname);
         const { pathname } = browserHistory.location;
 
         // To avoid infinite loop

@@ -5,7 +5,7 @@ import App from "./App";
 
 // Mount function to start up the app
 const mount = function (el, { onNavigate, defaultHistory, initialPath }) {
-  console.log("Mounting Marketing App");
+  console.log("Mounting Auth App");
 
   // defaultHistory is only used for development in isolation
   const history =
@@ -22,7 +22,7 @@ const mount = function (el, { onNavigate, defaultHistory, initialPath }) {
 
   return {
     onParentNavigate({ pathname: nextPathname }) {
-      console.log("Marketing App notified of navigation (by Container App) to:", nextPathname);
+      console.log("Auth App notified of navigation (by Container App) to:", nextPathname);
       const { pathname } = history.location;
       if (pathname !== nextPathname) {
         history.push(nextPathname);
@@ -32,7 +32,7 @@ const mount = function (el, { onNavigate, defaultHistory, initialPath }) {
 };
 
 if (process.env.NODE_ENV === "development") {
-  const devRoot = document.querySelector("#_marketing-dev-root");
+  const devRoot = document.querySelector("#_auth-dev-root");
   if (devRoot) {
     mount(devRoot, { defaultHistory: createBrowserHistory() });
   }
